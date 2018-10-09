@@ -30,7 +30,7 @@ public class GraphQLEndpoint extends SimpleGraphQLServlet {
     private static final VoteRepository voteRepository;
 
     static {
-        MongoDatabase mongo = new MongoClient().getDatabase("hackernews");
+        MongoDatabase mongo = new MongoClient("localhost", 27018).getDatabase("hackernews");
         linkRepository = new LinkRepository(mongo.getCollection("links"));
         userRepository = new UserRepository(mongo.getCollection("users"));
         voteRepository = new VoteRepository(mongo.getCollection("votes"));
